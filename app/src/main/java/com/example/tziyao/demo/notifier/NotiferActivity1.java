@@ -1,4 +1,4 @@
-package com.example.tziyao.demo.eventbus;
+package com.example.tziyao.demo.notifier;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,34 +9,29 @@ import android.widget.Toast;
 
 import com.example.tziyao.demo.R;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-
 /**
- * Created by tziyao on 16/7/12.
+ * Created by tziyao on 16/7/15.
  */
-public class EventBusActivity1 extends AppCompatActivity {
+public class NotiferActivity1 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_bus1);
-        EventBus.getDefault().register(this);
+        NotifierManager.getInstance().getTestNotifer().addEventListener(this, "onTest", String.class, int.class);
     }
 
     public void onClick(View v) {
-        Intent intent = new Intent(this, EventBusActivity2.class);
+        Intent intent = new Intent(this, NotiferActivity2.class);
         startActivity(intent);
     }
 
-    @Subscribe
-    public void onEvent(TestEvent event) {
-        String message = event.getMessage();
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    public void onTest(String param1, int param2) {
+        Toast.makeText(this, "测试数据param1=" + param1 + ",param2=" + param2, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+        NotifierManager.getInstance().getTestNotifer().removeEventListener(this);
     }
 }

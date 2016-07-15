@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tziyao.supportdemo">
+    package="com.example.tziyao.demo">
 
     <application
         android:allowBackup="true"
@@ -15,13 +15,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.tziyao.demo.recyclerview.RecycleViewActivity">
+        <activity android:name=".recyclerview.RecycleViewActivity">
 
         </activity>
-        <activity android:name="com.example.tziyao.demo.eventbus.EventBusActivity1">
+        <activity android:name=".eventbus.EventBusActivity1">
 
         </activity>
-        <activity android:name="com.example.tziyao.demo.eventbus.EventBusActivity2">
+        <activity android:name=".eventbus.EventBusActivity2">
+
+        </activity>
+        <activity android:name=".notifier.NotiferActivity1">
+
+        </activity>
+        <activity android:name=".notifier.NotiferActivity2">
 
         </activity>
     </application>

@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.tziyao.supportdemo.R;
+import com.example.tziyao.demo.R;
 
 /**
  * Created by tziyao on 16/7/6.
